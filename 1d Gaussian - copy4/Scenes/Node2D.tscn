@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scripts/Line2D_Axis.gd" type="Script" id=1]
+[ext_resource path="res://Shader/new_shadermaterial.tres" type="Material" id=2]
+[ext_resource path="res://Scripts/Line2D_Data.gd" type="Script" id=3]
+[ext_resource path="res://Sprites/sigma.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/mu.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/equation.png" type="Texture" id=6]
+[ext_resource path="res://Shader/new_shadermaterial_equation.tres" type="Material" id=7]
+[ext_resource path="res://Scripts/FingerDrag.gd" type="Script" id=8]
+[ext_resource path="res://Shader/new_shadermaterial_equation2.tres" type="Material" id=9]
+[ext_resource path="res://Scripts/Line2D_instruction.gd" type="Script" id=11]
+
+[node name="Node2D_1DGaussian" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="ColorRect_BackgroundColor" type="ColorRect" parent="."]
+margin_right = 800.0
+margin_bottom = 600.0
+color = Color( 0.870588, 0.501961, 0.513726, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Line2D_Data" type="Line2D" parent="CanvasLayer"]
+script = ExtResource( 3 )
+
+[node name="Line2D_Axis" type="Line2D" parent="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="Label_x_axis" type="Label" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "X "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label_y_axis" type="Label" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 14.0
+text = "P(x)"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite_mu" type="Sprite" parent="CanvasLayer"]
+material = ExtResource( 9 )
+scale = Vector2( 0.02, 0.02 )
+texture = ExtResource( 5 )
+
+[node name="Sprite_sigma" type="Sprite" parent="CanvasLayer"]
+material = ExtResource( 7 )
+position = Vector2( 262, 140 )
+scale = Vector2( 0.1, 0.1 )
+texture = ExtResource( 4 )
+
+[node name="Sprite_equation" type="Sprite" parent="CanvasLayer"]
+material = ExtResource( 2 )
+position = Vector2( 382, 119 )
+scale = Vector2( 0.55, 0.55 )
+texture = ExtResource( 6 )
+
+[node name="CanvasLayer_start_instruction" type="CanvasLayer" parent="."]
+
+[node name="Line2D_instruction" type="Line2D" parent="CanvasLayer_start_instruction"]
+script = ExtResource( 11 )

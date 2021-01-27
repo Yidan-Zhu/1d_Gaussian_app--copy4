@@ -1,0 +1,22 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec4 to_color : hint_color;
+uniform float threshold = 0.94;
+
+void fragment() {
+    vec4 curr_color = texture(TEXTURE, UV);
+
+	if (curr_color.a > threshold){
+        COLOR = vec4(200.0/255.0,239.0/255.0,212.0/255.0,1);
+    } else {
+		COLOR = vec4(0,0,0,0);
+	}
+}"
+
+[resource]
+shader = SubResource( 1 )
+shader_param/to_color = null
+shader_param/threshold = 0.94
